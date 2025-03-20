@@ -3,14 +3,16 @@ import { Calendar, Clock, MapPin, Phone } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen relative">
+      <ThemeToggle />
       <header className="sticky top-0 z-10 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto max-w-5xl flex h-16 items-center justify-between px-4">
           <div className="flex items-center gap-2">
-            <span className="text-xl font-bold">Dr. Cristian Grudtner</span>
+            <span className="text-xl font-bold">Cristian Grudtner</span>
           </div>
           <nav className="hidden md:flex gap-6">
             <Link href="#" className="text-sm font-medium transition-colors hover:text-primary">
@@ -45,7 +47,7 @@ export default function Home() {
                   Psicologia para o seu bem-estar
                 </h1>
                 <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                  Olá, sou o Dr. Cristian Grudtner, psicólogo clínico dedicado a ajudar você a encontrar equilíbrio e
+                  Olá, sou o Psi. Cristian Grudtner, psicólogo clínico dedicado a ajudar você a encontrar equilíbrio e
                   saúde mental através de uma abordagem personalizada e acolhedora.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -57,13 +59,13 @@ export default function Home() {
                   </Button>
                 </div>
               </div>
-              <img
-                src="/placeholder.svg?height=550&width=450"
-                alt="Dr. Cristian Grudtner"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
-                width={550}
-                height={450}
-              />
+              <div className="relative w-full max-w-[550px] aspect-[4/5] mx-auto lg:order-last">
+                <img
+                  src="/cris.jpg"
+                  alt="Psi. Cristian Grudtner"
+                  className="absolute inset-0 w-full h-full rounded-xl object-cover object-center"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -82,7 +84,7 @@ export default function Home() {
               </div>
               <div className="mx-auto grid max-w-5xl items-center gap-8 py-12 lg:grid-cols-2 lg:gap-12">
                 <img
-                  src="/placeholder.svg?height=400&width=400"
+                  src="/img2.jpg"
                   alt="Consultório"
                   className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
                   width={400}
@@ -252,7 +254,7 @@ export default function Home() {
                     <CardHeader>
                       <CardTitle>Informações Importantes</CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-6">
+                    <CardContent className="space-y-6 text-left">
                       <div className="flex items-start gap-3">
                         <Clock className="h-5 w-5 mt-0.5 text-primary" />
                         <div>
@@ -270,19 +272,6 @@ export default function Home() {
                             Segunda a sexta: 8h às 20h
                             <br />
                             Sábados: 8h às 12h (mediante agendamento prévio)
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <MapPin className="h-5 w-5 mt-0.5 text-primary" />
-                        <div>
-                          <h4 className="font-medium">Endereço</h4>
-                          <p className="text-sm text-muted-foreground">
-                            Rua das Flores, 123 - Centro
-                            <br />
-                            Edifício Saúde Mental, Sala 302
-                            <br />
-                            CEP: 00000-000
                           </p>
                         </div>
                       </div>
@@ -314,41 +303,56 @@ export default function Home() {
                   Entre em contato para mais informações ou dúvidas.
                 </p>
               </div>
-              <div className="mx-auto grid max-w-5xl gap-6 py-12 lg:grid-cols-2">
-                <Card>
+              <div className="w-full max-w-2xl mx-auto">
+                <Card className="w-full">
                   <CardHeader>
-                    <CardTitle>Informações de Contato</CardTitle>
+                    <CardTitle className="text-2xl">Informações de Contato</CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="flex items-center gap-2">
-                      <Phone className="h-5 w-5 text-primary" />
-                      <span>(00) 00000-0000</span>
-                    </div>
-                    <div className="flex items-center gap-2">
+                  <CardContent className="space-y-6">
+                    <a 
+                      href="https://wa.me/5544998707888" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 hover:text-primary transition-colors text-lg"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
+                        width="24"
+                        height="24"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="h-5 w-5 text-primary"
+                        className="h-6 w-6 text-primary"
+                      >
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                      </svg>
+                      <span>(44) 99870-7888</span>
+                    </a>
+                    <div className="flex items-center gap-3 text-lg">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-6 w-6 text-primary"
                       >
                         <rect width="20" height="16" x="2" y="4" rx="2" />
                         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                       </svg>
                       <span>contato@cristiangrudtner.com.br</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <MapPin className="h-5 w-5 text-primary" />
-                      <span>Rua das Flores, 123 - Centro</span>
-                    </div>
-                    <div className="pt-4">
-                      <h4 className="font-medium mb-2">Redes Sociais</h4>
-                      <div className="flex gap-4 justify-center">
+                  
+                    <div className="pt-6">
+                      <h4 className="font-medium text-lg mb-4">Redes Sociais</h4>
+                      <div className="flex gap-6 justify-center">
                         <a href="#" className="text-muted-foreground hover:text-primary">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -405,56 +409,6 @@ export default function Home() {
                     </div>
                   </CardContent>
                 </Card>
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Envie uma Mensagem</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <form className="grid gap-4">
-                      <div className="grid gap-2">
-                        <label htmlFor="contact-name">Nome</label>
-                        <input
-                          id="contact-name"
-                          className="w-full p-2 border rounded-md"
-                          placeholder="Seu nome"
-                          required
-                        />
-                      </div>
-                      <div className="grid gap-2">
-                        <label htmlFor="contact-email">E-mail</label>
-                        <input
-                          id="contact-email"
-                          type="email"
-                          className="w-full p-2 border rounded-md"
-                          placeholder="seu@email.com"
-                          required
-                        />
-                      </div>
-                      <div className="grid gap-2">
-                        <label htmlFor="contact-subject">Assunto</label>
-                        <input
-                          id="contact-subject"
-                          className="w-full p-2 border rounded-md"
-                          placeholder="Assunto da mensagem"
-                          required
-                        />
-                      </div>
-                      <div className="grid gap-2">
-                        <label htmlFor="contact-message">Mensagem</label>
-                        <textarea
-                          id="contact-message"
-                          className="w-full p-2 border rounded-md"
-                          rows={4}
-                          placeholder="Sua mensagem"
-                          required
-                        ></textarea>
-                      </div>
-                      <Button type="submit" className="w-full">
-                        Enviar Mensagem
-                      </Button>
-                    </form>
-                  </CardContent>
-                </Card>
               </div>
             </div>
           </div>
@@ -463,12 +417,17 @@ export default function Home() {
       <footer className="w-full border-t py-6 md:py-0">
         <div className="container mx-auto max-w-5xl flex flex-col items-center justify-between gap-4 px-4 md:h-24 md:flex-row">
           <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-            © 2025 Dr. Cristian Grudtner. Todos os direitos reservados. CRP: XX/XXXXX
+            © 2025 Psi. Cristian Grudtner. Todos os direitos reservados. CRP-08/41496
           </p>
           <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-            Desenvolvido com ❤️ por{" "}
-            <a href="#" className="font-medium underline underline-offset-4">
-              Studio Web
+            Desenvolvido por{" "}
+            <a 
+              href="https://www.instagram.com/hbreuel/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium underline underline-offset-4 hover:text-primary"
+            >
+              Hbreuel
             </a>
           </p>
         </div>
